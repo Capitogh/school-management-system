@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     checkUser()
 
-    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange(async (_event, session) => {
       if (session) {
         setUser(session.user)
         await fetchUserRole(session.user.id)
